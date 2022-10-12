@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import Header from './Header';
 import Form from './Form';
 import TodosList from './TodosList';
 
 const ListTodo =() => {
-    const initialState = JSON.parse(localStorage.getItem("todos")) || [];
+    
   const [input, setInput] = useState("");
-  const [todos, setTodos] = useState(initialState);
+  const [todos, setTodos] = useState([]);
   const [editTodo, setEditTodo] = useState(null);
 
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  },[todos]);
+ 
   
     return (
     <div className='container'>
