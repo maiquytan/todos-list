@@ -1,0 +1,67 @@
+.container1{
+    background: linear-gradient(to right bottom,#000 , #001) ;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    
+    button{
+      background-color: #04AA6D;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+    }
+  }
+  .app-wrapper1{
+    background-color: aliceblue;
+    min-width: 300px;
+    min-height: 300px;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 3px 6px 40px #000;
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  } 
+  
+  .formlogin{
+    padding: 16px;
+    color: dark;
+  }
+  .buttonlogin{
+    margin: auto;
+  }
+  
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+  }
