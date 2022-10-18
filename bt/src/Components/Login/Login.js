@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import "./login.scss"
 const Login = () => {
 
-  const [userName, setUserName] = useState();
-  const [userPass, setUserPass] = useState();
+  const [userName, setUserName] = useState('');
+  const [userPass, setUserPass] = useState('');
 
 
   return (
@@ -25,7 +25,7 @@ const Login = () => {
               <button type='submit' onClick={notification} className="buttonlogin"> Đăng nhập </button>
             </div>
             <div>
-              <input type="checkbox" checked="checked" className="remember" />
+              <input type="checkbox"   className="remember" />
               <label> Remember me</label>
             </div>
             <div >

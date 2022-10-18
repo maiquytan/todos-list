@@ -36,9 +36,29 @@
   border: 1px solid #c89666;
   border-radius: 10px;
 }
+.task-input1{
+  outline: none;
+  width: 200px;
+  padding: 10px;
+  margin-right: 25px;
+  font-size: 20px;
+  color: #ccc;
+  background-color:  #000000;
+  border: 1px solid #c89666;
+  border-radius: 10px;
+}
 .button-add{
   width: 70px;
   padding: 15px 15px;
+  font-size: 20px;
+  border-radius:10px;
+  border: 0;
+  background-color: #f1af71;
+  cursor: pointer;
+}
+.button-search{
+  width: 100px;
+  padding: 10px 10px;
   font-size: 20px;
   border-radius:10px;
   border: 0;
@@ -96,3 +116,19 @@ button:focus{
 } 
 
 
+.filter{
+  padding: 10px;
+  margin: auto;
+  color: #ccc;
+  
+
+  .filter-header{
+    font-size: 25px;
+  }
+
+  .filter-radio{
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  }
+}
