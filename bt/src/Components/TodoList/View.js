@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Form from './Form';
 import TodosList from './TodosList';
@@ -11,16 +11,31 @@ const ListTodo = () => {
   const [todos, setTodos] = useState(initialState);
   const [editTodo, setEditTodo] = useState(null);
   const [searchText, setSearchText] = useState('');
-  const[filterStatus, setFilterStatus] =useState('All');
-
-  useEffect(()=>{
-    localStorage.setItem("todos",JSON.stringify(todos));
-  },[todos]);
+  const [filterStatus, setFilterStatus] = useState('All');
+  const [listStatus,setListStatus] = useState(todos); 
+  useEffect(() => {
+    setListStatus(todos);
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   //toLowerCase() : không phân biệt chữ hoa chữ thường
   //includes : phát hiện chữ cái có trong từ bạn muốn tìm
-  const todosAfterSearch =  todos.filter(x => x.title.toLowerCase().includes(searchText));
-  
+  const todosAfterSearch = todos.filter(x => x.title.toLowerCase().includes(searchText));
+
+  useEffect(()=>{
+    switch (filterStatus){
+      case 'All':
+        setListStatus(todosAfterSearch); 
+      break;
+      case 'Completed':
+        setListStatus(todosAfterSearch.filter((todo)=>todo.completed === true));
+      break;
+      case 'Todo': 
+        setListStatus(todosAfterSearch.filter((todo)=>todo.completed === false));
+      break;
+      default : 
+    }
+  },[filterStatus,searchText,todosAfterSearch]);
 
   return (
     <div className='container'>
@@ -33,7 +48,10 @@ const ListTodo = () => {
           <Search setSearchText={setSearchText} searchText={searchText} />
         </div>
         <div>
-          <Filter filterStatus ={filterStatus} setFilterStatus ={setFilterStatus}/>
+          <Filter filterStatus={filterStatus}
+            setFilterStatus={setFilterStatus}
+            setListStatus ={setListStatus}
+            />
         </div>
         <div>
           <Form
@@ -46,7 +64,7 @@ const ListTodo = () => {
           />
         </div>
         <div>
-          <TodosList todos={todosAfterSearch} setTodos={setTodos} setEditTodo={setEditTodo} />
+          <TodosList todos={listStatus} setTodos={setTodos} setEditTodo={setEditTodo} />
         </div>
 
       </div>

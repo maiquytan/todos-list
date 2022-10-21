@@ -3,7 +3,7 @@ import React from 'react'
 
 const TodosList = ({ todos, setTodos, setEditTodo }) => {
   
-
+  
   const handleDelete = ({ id }) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -21,6 +21,7 @@ const TodosList = ({ todos, setTodos, setEditTodo }) => {
       })
     );
   };
+  
   return (
     <div>
       {todos.map((todo) => (

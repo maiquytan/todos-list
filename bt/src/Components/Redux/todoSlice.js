@@ -39,6 +39,12 @@ const todoSlice = createSlice({
             };
             state.push(newTodo);
         },
+        toggleTodoStatus: (state, action) => {
+            const currentTodo = state.find(todo => todo.id === action.payload);
+            if (currentTodo) {
+              currentTodo.completed = !currentTodo.completed;
+            }
+          }
 
     },
     // extraReducers :{
